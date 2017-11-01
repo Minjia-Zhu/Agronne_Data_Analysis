@@ -5,14 +5,13 @@ df['Dol_pAc']=df['wprice*yield']
 df.loc[df['Dol_pAc'] == 0, 'Dol_pAc'] = df['f_value/acre']
 df['Dol_NPpAc'] = df['Dol_pAc']*df['DN']
 df['Dol_HBpAc'] = df['Dol_pAc']*df['DH']
-df
+
 #create unique list of state
 UniqueState = df.state.unique()
 #create a data frame dictionary to store your data frames
 dfDict = {elem : pd.DataFrame for elem in UniqueState}
 for key in dfDict.keys():
     dfDict[key] = df[:][df.state== key]
-il = dfDict["IL"]
 
 def wavg(group, avg_name, weight_name):
     """
