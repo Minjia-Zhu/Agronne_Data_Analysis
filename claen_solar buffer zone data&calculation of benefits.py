@@ -1,10 +1,12 @@
 
 import pandas as pd
 df = pd.read_excel("Solar buffer zone data and calculation of benefits_1.xlsx",sheetname=1)
+#calculate value per acre and fill in with missing value 
 df['Dol_pAc']=df['wprice*yield']
 df.loc[df['Dol_pAc'] == 0, 'Dol_pAc'] = df['f_value/acre']
 df['Dol_NPpAc'] = df['Dol_pAc']*df['DN']
 df['Dol_HBpAc'] = df['Dol_pAc']*df['DH']
+#df.to_excel('filne_name.xlsx')
 
 #create unique list of state
 UniqueState = df.state.unique()
