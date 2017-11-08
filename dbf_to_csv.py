@@ -2,6 +2,7 @@
 """
 A tool to convert .dbf file to .csv file
 Set path as the current working directory of your data folder 
+Notice: This ONLY works in Python2 environment. Unfortunaly dbfpy doesn't support Python3
 
 """
 # Code adapted from :
